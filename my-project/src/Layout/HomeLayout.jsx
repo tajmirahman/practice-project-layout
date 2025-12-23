@@ -1,12 +1,15 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import CategoryNews from '../Pages/CategoryNews';
 
 const HomeLayout = () => {
-    const news=useLoaderData();
-    console.log(news)
+    const data=useLoaderData();
+    console.log(data)
     return (
         <div>
-            THis is hohme page
+            {
+                data.map(news=> <CategoryNews key={news.id} news={news}></CategoryNews>)
+            }
         </div>
     );
 };

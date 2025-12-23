@@ -1,5 +1,5 @@
 import { use } from "react";
-import { NavLink, } from "react-router-dom";
+import { NavLink, useParams, } from "react-router-dom";
 
 const categoryPromise= fetch ('/categories.json').then
 // eslint-disable-next-line no-unexpected-multiline

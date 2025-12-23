@@ -1,15 +1,11 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
-import CategoryNews from '../Pages/CategoryNews';
+import LeftSide from '../Components/LeftSide';
+import { Outlet } from 'react-router-dom';
 
 const HomeLayout = () => {
-    const data=useLoaderData();
-    console.log(data)
     return (
         <div>
-            {
-                data.map(news=> <CategoryNews key={news.id} news={news}></CategoryNews>)
-            }
+            dfgdfgd
         </div>
     );
 };

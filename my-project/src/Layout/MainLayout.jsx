@@ -1,7 +1,7 @@
 
 import Header from '../Components/Header';
-import LeftSide from '../Components/LeftSide';
 import { Outlet } from 'react-router-dom';
+import LeftSide from '../Components/LeftSide';
 
 const MainLayout = () => {
     return (
@@ -20,7 +20,7 @@ const MainLayout = () => {
                 </aside>
 
                 <aside className='col-span-6'>
-                     <Outlet></Outlet>
+                    <Outlet></Outlet>
                 </aside>
 
                 <aside className='col-span-3'>This is right side</aside>

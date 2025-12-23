@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -18,7 +19,8 @@ const Header = () => {
                 </div>
             </div>
             <div className="navbar-center">
-                <a className="btn btn-ghost text-xl">Demo Practice</a>
+                
+                <Link to={'/'} className="btn btn-ghost text-xl">Demo Practice</Link>
             </div>
             <div className="navbar-end">
                 <button className="btn btn-ghost btn-circle">

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const NewsCard = ({news}) => {
 
-    const { title, author, thumbnail_url, details, rating, total_view } =
+    const { id,title, author, thumbnail_url, details, rating, total_view } =
         news;
 
     const formattedDate = new Date(
@@ -53,7 +53,7 @@ const NewsCard = ({news}) => {
                     <>
                         {details.slice(0, 200)}...
                         <Link
-                            to={'/news-details'}
+                            to={`/news-details/${id}`}
                             className="text-primary font-semibold cursor-pointer hover:underline"
                         >
                             Read More

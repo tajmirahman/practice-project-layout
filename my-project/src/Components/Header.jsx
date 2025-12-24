@@ -25,7 +25,7 @@ const Header = () => {
             </div>
             <div className="navbar-end flex gap-3">
                 <img src={userIcon} alt="" />
-                <Link to={'/auth-login'}>Login</Link>
+                <Link to="/auth/login">Login</Link>
             </div>
         </div>
     );

@@ -3,6 +3,8 @@ import MainLayout from "../Layout/MainLayout";
 import HomeLayout from "../Layout/HomeLayout";
 import CategoryNews from "../Pages/CategoryNews";
 import NewsDetails from "../Pages/NewsDetails";
+import AuthLayout from "../Layout/AuthLayout";
+import Register from "../Pages/Register";
 
 const router = createBrowserRouter([
     {
@@ -12,23 +14,34 @@ const router = createBrowserRouter([
             {
                 path: '',
                 element: <CategoryNews></CategoryNews>,
-                loader: ()=> fetch('/news.json')
+                loader: () => fetch('/news.json')
             },
             {
                 path: '/category/:id',
                 element: <CategoryNews></CategoryNews>,
-                loader: ()=> fetch('/news.json')
+                loader: () => fetch('/news.json')
             }
         ]
     },
     {
         path: '/auth',
-        element: <h1>This is auth layout page</h1>
+        element: <AuthLayout></AuthLayout>,
+        children: [
+            {
+                path: '/auth-loign',
+                element: <Login></Login>
+            },
+            {
+                path: '/auth-register',
+                element: <Register></Register>
+            }
+
+        ]
     },
     {
         path: '/news-details/:id',
-        element:<NewsDetails></NewsDetails>,
-        loader: ()=>fetch('/news.json')
+        element: <NewsDetails></NewsDetails>,
+        loader: () => fetch('/news.json')
     },
     {
         path: '*/',

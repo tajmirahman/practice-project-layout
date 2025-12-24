@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import userIcon from '../assets/user.png'
+import { AuthContext } from '../Provider/AuthProviser';
 
 const Header = () => {
+
+    const name=useContext(AuthContext);
+    console.log(name);
+
     return (
         <div className="navbar bg-base-100 shadow-sm">
             <div className="navbar-start">

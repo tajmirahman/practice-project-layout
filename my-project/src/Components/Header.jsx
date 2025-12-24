@@ -1,12 +1,18 @@
-import React, { useContext } from 'react';
+
 import { Link } from 'react-router-dom';
 import userIcon from '../assets/user.png'
 import { AuthContext } from '../Provider/AuthProviser';
+import { useContext } from 'react';
 
 const Header = () => {
 
-    const name=useContext(AuthContext);
-    console.log(name);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleButton=()=>{
+        logOut()
+        .then(()=>{})
+        .catch((err)=>console.log(err.code))
+    }
 
     return (
         <div className="navbar bg-base-100 shadow-sm">
@@ -25,12 +31,18 @@ const Header = () => {
                 </div>
             </div>
             <div className="navbar-center">
-                
+
                 <Link to={'/category/0'} className="btn btn-ghost text-xl">Demo Practice</Link>
             </div>
             <div className="navbar-end flex gap-3">
                 <img src={userIcon} alt="" />
-                <Link to="/auth/login">Login</Link>
+                {
+                    user && user.email ?
+                        (<button onClick={handleButton} className='btn btn-ghost'>Logout</button>)
+                        :
+                        <Link to="/auth/login" lassName='btn btn-ghost'>Login</Link>
+                }
+
             </div>
         </div>
     );

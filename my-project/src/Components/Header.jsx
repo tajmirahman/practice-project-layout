@@ -20,7 +20,7 @@ const Header = () => {
             </div>
             <div className="navbar-center">
                 
-                <Link to={'/'} className="btn btn-ghost text-xl">Demo Practice</Link>
+                <Link to={'/category/0'} className="btn btn-ghost text-xl">Demo Practice</Link>
             </div>
             <div className="navbar-end">
                 <button className="btn btn-ghost btn-circle">

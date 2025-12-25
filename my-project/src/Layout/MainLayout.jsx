@@ -1,9 +1,11 @@
 
 import Header from '../Components/Header';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigation } from 'react-router-dom';
 import LeftSide from '../Components/LeftSide';
+import Loadin from '../Components/Loadin';
 
 const MainLayout = () => {
+    const {state}=useNavigation();
     return (
         <div className='w-11/12 mx-auto'>
 
@@ -16,11 +18,13 @@ const MainLayout = () => {
 
             <main className='grid md:grid-cols-12 grid-cols-1 gap-3 mt-5'>
                 <aside className='col-span-3'>
+                    
                     <LeftSide></LeftSide>
                 </aside>
 
                 <aside className='col-span-6'>
-                    <Outlet></Outlet>
+                    {import.meta.env.VITE_name}
+                  {state == "loading" ? <Loadin /> : <Outlet></Outlet>}  
                 </aside>
 
                 <aside className='col-span-3'>This is right side</aside>

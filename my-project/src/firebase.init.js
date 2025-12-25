@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAwcl1Z3V-x_LWmRGCBusbIJCWTdwoK6UM",
-  authDomain: "dragon-news-bracking-e69fa.firebaseapp.com",
-  projectId: "dragon-news-bracking-e69fa",
-  storageBucket: "dragon-news-bracking-e69fa.firebasestorage.app",
-  messagingSenderId: "569995080264",
-  appId: "1:569995080264:web:0371546d6318053e611e7d"
+  apiKey: "AIzaSyDMFOB8p7P88rewD7gf9iqgdRx0kJVV8yM",
+  authDomain: "dragon-news-breaking.firebaseapp.com",
+  projectId: "dragon-news-breaking",
+  storageBucket: "dragon-news-breaking.firebasestorage.app",
+  messagingSenderId: "598265501084",
+  appId: "1:598265501084:web:d3a276b92ae529eeab6459",
 };
 
 // Initialize Firebase
@@ -19,3 +19,11 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 export default auth;
+
+
+// apiKey: import.meta.env.VITE_apiKey,
+//   authDomain: import.meta.env.VITE_authDomain,
+//   projectId: import.meta.env.VITE_projectId,
+//   storageBucket: import.meta.env.VITE_storageBucket,
+//   messagingSenderId:import.meta.env.VITE_messagingSenderId, 
+//   appId: import.meta.env.VITE_appId,

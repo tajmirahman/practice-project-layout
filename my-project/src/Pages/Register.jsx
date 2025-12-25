@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProviser';
 
@@ -8,6 +8,9 @@ const Register = () => {
 
     const navigate=useNavigate();
 
+    const [error,setError]=useState(null);
+
+
     const handleRegister = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -16,7 +19,15 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log({ name, photo, email, password });
+        if(name.length<4){
+            setError('Character Must be at least 4');
+            return;
+        }
+
+        if(password.length < 6){
+            setError('must be 6 character!')
+            return;
+        }
 
         createUser(email, password)
             .then((result) => {
@@ -30,7 +41,7 @@ const Register = () => {
                     .catch(err=>console.log(err.code))
             })
             .catch((error) => {
-                console.log(error.code)
+                setError(error.code)
             })
     }
 
@@ -40,13 +51,17 @@ const Register = () => {
 
             <form onSubmit={handleRegister} className='space-y-3'>
 
-                <input type="text" name='name' placeholder="Type your name" className="input input-neutral w-full" />
+                <input type="text" name='name' placeholder="Type your name" className="input input-neutral w-full" required/>
 
-                <input type="photo" name='photo' placeholder="select your photo link" className="input input-neutral w-full" />
+                <input type="photo" name='photo' placeholder="select your photo link" className="input input-neutral w-full" required/>
 
-                <input type="email" name='email' placeholder="email" className="input input-neutral w-full" />
+                <input type="email" name='email' placeholder="email" className="input input-neutral w-full" required/>
 
-                <input type="password" name='password' placeholder="password" className="input input-neutral w-full" />
+                <input type="password" name='password' placeholder="password" className="input input-neutral w-full" required/>
+
+                {
+                    error && <p className='text-red-400'>{error}</p>
+                }
 
                 <button type="submit" className="btn btn-secondary w-full">Submit</button>
 

@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProviser';
 
 const Login = () => {
+
+    const {userLogin}=useContext(AuthContext);
 
     const handleLogin=(e)=>{
         e.preventDefault();
@@ -9,7 +12,12 @@ const Login = () => {
         const email=form.email.value;
         const password=form.password.value;
 
-        console.log(email,password)
+        userLogin(email,password)
+        .then(result=>{
+            const user=result.user;
+            console.log(user);
+        })
+        .catch(error=>{console.log(error)})
     }
 
 
@@ -19,7 +27,8 @@ const Login = () => {
             <form onSubmit={handleLogin} className='space-y-3'>
                 <input type="email" name='email'  placeholder="email" className="input input-neutral w-full" />
                 <input type="password" name='password' placeholder="password" className="input input-neutral w-full" />
-                <Link type="submit" className="btn btn-secondary w-full">Submit</Link>
+                <button type="submit" className="btn btn-secondary w-full">Submit</button>
+
                 <p>if do not have an account. <Link to={'/auth/register'} className='text-red-500'>Register</Link></p>
             </form>
         </div>

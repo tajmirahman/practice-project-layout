@@ -6,6 +6,9 @@ import Loadin from '../Components/Loadin';
 
 const MainLayout = () => {
     const {state}=useNavigation();
+
+    console.log(import.meta.env.VITE_SOME_KEY)
+
     return (
         <div className='w-11/12 mx-auto'>
 
@@ -23,7 +26,7 @@ const MainLayout = () => {
                 </aside>
 
                 <aside className='col-span-6'>
-                    {import.meta.env.VITE_name}
+                    
                   {state == "loading" ? <Loadin /> : <Outlet></Outlet>}  
                 </aside>
 

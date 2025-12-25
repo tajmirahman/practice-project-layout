@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
+import { AuthContext } from './AuthProviser';
 
 const PrivateRoute = ({children}) => {
+    const {user}=useContext(AuthContext);
     const location=useLocation();
     console.log(location);
 
-    return <Navigate to={'/auth/login'}></Navigate>
+    if (user && user?.email) {
+    return children;
+  }
+
+    return <Navigate state={location.pathname} to={'/auth/login'}></Navigate>
 };
 
 export default PrivateRoute;
